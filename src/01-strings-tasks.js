@@ -214,6 +214,7 @@ function getRectangleString(kek, cock) {
   const space = ' ';
   let rectangle = '';
   let element = '';
+  let buffer = 0;
   for (let j = 0; j < height; j += 1) {
     for (let i = 0; i < width; i += 1) {
       if (j === 0 && i === 0) element += upCornerLeft;
@@ -225,7 +226,7 @@ function getRectangleString(kek, cock) {
       if (i === 0 || i === width - 1) {
         if (rectangle.length > 1) {
           if (j !== height - 1) {
-            if (i === width - 1 && j === 0) console.log('');
+            if (i === width - 1 && j === 0) buffer = +1;
             else element += side;
           }
         }
@@ -238,7 +239,8 @@ function getRectangleString(kek, cock) {
   }
   rectangle += bottomCornerRight;
   rectangle += '\n';
-  return rectangle;
+  buffer = '';
+  return rectangle + buffer;
 }
 
 /**
